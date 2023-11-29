@@ -52,4 +52,19 @@ fetch(Url)
         });
     });
 
+var legend = L.control({
+    position: 'bottomright'
+});
 
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML += `<i style="background: ${getMarkerColor(-10)}"></i> -10-10 <br>`;
+    div.innerHTML += `<i style="background: ${getMarkerColor(10)}"></i> 10-30 <br>`;
+    div.innerHTML += `<i style="background: ${getMarkerColor(30)}"></i> 30-50 <br>`;
+    div.innerHTML += `<i style="background: ${getMarkerColor(50)}"></i> 50-70 <br>`;
+    div.innerHTML += `<i style="background: ${getMarkerColor(70)}"></i> 70-90 <br>`;
+    div.innerHTML += `<i style="background: ${getMarkerColor(90)}"></i> 90+<br>`;
+    return div;
+};
+
+legend.addTo(myMap);
